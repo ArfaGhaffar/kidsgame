@@ -98,5 +98,19 @@ public class MainActivity extends AppCompatActivity {
         textView2.setText(myNum[value]);
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString("text",textView2.getText().toString());
+        outState.putString("text2",textView3.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        textView2.setText(savedInstanceState.getString("text"));
+        textView3.setText(savedInstanceState.getString("text2"));
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
 
 }
