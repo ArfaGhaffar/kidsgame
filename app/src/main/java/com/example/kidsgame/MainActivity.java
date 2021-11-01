@@ -35,7 +35,68 @@ public class MainActivity extends AppCompatActivity {
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
 
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (textView2.getText() == "b" || textView2.getText() == "d" || textView2.getText() == "f" || textView2.getText() == "h" || textView2.getText() == "k" || textView2.getText() == "l" || textView2.getText() == "t") {
+                    textView3.setText("CORRECT");
+                } else {
+                    textView3.setText("WRONG");
+                }
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] myNum = { "a","c","e","i","m","n","o","r","s","u","v","w","x","z"};
+                for(int i=0;i<=13;i++){
+                    if (textView2.getText()==myNum[i]){
+                        textView3.setText("CORRECT");
+                        break;
+                    }
+                    else{
+                        textView3.setText("WRONG");
+                    }
+                }
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] myNum = { "g","j","p","q","y"};
+                for(int i=0;i<=4;i++){
+                    if (textView2.getText()==myNum[i]){
+                        textView3.setText("CORRECT");
+                        break;
+                    }
+                    else{
+                        textView3.setText("WRONG");
+                    }
+                }
+
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                randomNumber();
+
+            }
+        });
 
 
     }
+
+    private void randomNumber() {
+        String[] myNum = {"a", "b", "c", "d","e", "f", "g", "h","i", "j", "k", "l","m", "n", "o", "p","q", "r", "s", "t","u", "v", "w", "x","y","z"};
+        Random random = new Random();
+        int value = random.nextInt( 25);
+
+        textView2.setText(myNum[value]);
+    }
+
+
 }
